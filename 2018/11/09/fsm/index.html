@@ -7,24 +7,24 @@
   
     <title>
       
-        Hello World |
+        Finite State Machine Modeling |
           
             Hexo
     </title>
     <!-- 主css -->
     <link rel="stylesheet" href="/sass/main.css">
       <!-- seo -->
-      <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+      <meta name="description" content="We’ll introduce how to model using state machine. Quick Start1int main(int argc arg);  \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}  \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\ \frac{\partial X}{\p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/11/09/hello-world/index.html">
+<meta property="og:title" content="Finite State Machine Modeling">
+<meta property="og:url" content="http://yoursite.com/2018/11/09/fsm/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="We’ll introduce how to model using state machine. Quick Start1int main(int argc arg);  \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}  \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\ \frac{\partial X}{\p">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-09T07:27:57.014Z">
+<meta property="og:updated_time" content="2018-11-09T06:21:56.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Finite State Machine Modeling">
+<meta name="twitter:description" content="We’ll introduce how to model using state machine. Quick Start1int main(int argc arg);  \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}  \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\ \frac{\partial X}{\p">
         <!-- facicon -->
         
           <link rel="icon" href="http://7xp1k3.com1.z0.glb.clouddn.com/octocat-de-los-muertos.jpg">
@@ -103,18 +103,18 @@
         <div class="articleCon">
             <header class="article-header">
                 <h1 itemprop="name">
-                    <a href="/2018/11/09/hello-world/" class="article-title">Hello World</a>
+                    <a href="/2018/11/09/fsm/" class="article-title">Finite State Machine Modeling</a>
                 </h1>
             </header>
             
 <div class="bookmark" id="bookmark">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a></li></ol>
 </div>
 
             
             <div class="article-meta">
                 <div class="article-dateTime">
-    <a href="/2018/11/09/hello-world/" class="article-date">
+    <a href="/2018/11/09/fsm/" class="article-date">
         <time datetime="Nov 9th 2018" itemprop="datePublished">
             Nov 9th 2018
         </time>
@@ -124,24 +124,26 @@
             </div>
             <div class="article-inner">
                 <div class="article-entry" itemprop="articleBody">
-                    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a><br>hello $ E = MC ^2 $</p>
-
+                    <p>We’ll introduce how to model using state machine.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc arg)</span></span>;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} 
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
+\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
+\end{vmatrix}</script>
                 </div>
                 
 <nav id="article-nav">
   
-  
-    <a href="/2018/11/09/fsm/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"> < Finite State Machine Modeling</div>
+    <a href="/2018/11/09/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        
+          Hello World >
+        
+      </div>
     </a>
+  
   
 </nav>
 
