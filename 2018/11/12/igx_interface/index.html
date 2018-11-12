@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>
+      
+        FGX Protocol FSM Design and Interface |
+          
+            IGX
+    </title>
+    <!-- 主css -->
+    <link rel="stylesheet" href="/sass/main.css">
+      <!-- seo -->
+      <meta name="description" content="FGX Protocol FSM Design and Interfacefgx protocol interface: 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FGX Protocol FSM Design and Interface">
+<meta property="og:url" content="http://yoursite.com/2018/11/12/igx_interface/index.html">
+<meta property="og:site_name" content="IGX">
+<meta property="og:description" content="FGX Protocol FSM Design and Interfacefgx protocol interface: 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-12T06:05:15.960Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FGX Protocol FSM Design and Interface">
+<meta name="twitter:description" content="FGX Protocol FSM Design and Interfacefgx protocol interface: 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374">
+        <!-- facicon -->
+        
+          <link rel="icon" href="http://7xp1k3.com1.z0.glb.clouddn.com/octocat-de-los-muertos.jpg">
+          
+            <!-- 统计 -->
+            
+              <script>
+                var _hmt = _hmt || [];
+                (function () {
+                  var hm = document.createElement("script");
+                  hm.src = "//hm.baidu.com/hm.js?c21994907883f37ffd80e13627dd4faa";
+                  var s = document.getElementsByTagName("script")[0];
+                  s.parentNode.insertBefore(hm, s);
+                })();
+              </script>
+              
+                
+                    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head></html>
+	<body>
+		<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="main">
+			<div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/">IGX</a>
+</div>
+<header class="nav-header">
+    <a href="/" class="logo-link">IGX</a>
+    
+            
+    <ul class="nav nav-list">
+        <li class="nav-list-item"><a href="/">Home</a></li>
+        
+            
+        
+            
+        <li class="nav-list-item"><a href="/about">About</a></li>
+            
+        
+            
+        <li class="nav-list-item"><a href="/tags">Tags</a></li>
+            
+        
+            
+        <li class="nav-list-item"><a href="/archives">Archives</a></li>
+            
+        
+    </ul>
+</header>
+<div class="sidebar">
+    
+            
+    <ul class="main-menu">
+        <li class="main-menu-item"><a href="/">Home</a></li>
+        
+            
+        
+            
+        <li class="main-menu-item"><a href="/about">About</a></li>
+            
+        
+            
+        <li class="main-menu-item"><a href="/tags">Tags</a></li>
+            
+        
+            
+        <li class="main-menu-item"><a href="/archives">Archives</a></li>
+            
+        
+    </ul>
+</div>
+
+<h1 class="blog-title">The IGX Blog</h1>
+
+			
+<article class="article-main" itemscope="" itemprop="blogPost">
+        <div class="articleCon">
+            <header class="article-header">
+                <h1 itemprop="name">
+                    <a href="/2018/11/12/igx_interface/" class="article-title">FGX Protocol FSM Design and Interface</a>
+                </h1>
+            </header>
+            
+<div class="bookmark" id="bookmark">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FGX-Protocol-FSM-Design-and-Interface"><span class="toc-text">FGX Protocol FSM Design and Interface</span></a></li></ol>
+</div>
+
+            
+            <div class="article-meta">
+                <div class="article-dateTime">
+    <a href="/2018/11/12/igx_interface/" class="article-date">
+        <time datetime="Nov 12th 2018" itemprop="datePublished">
+            Nov 12th 2018
+        </time>
+    </a>
+</div>
+
+            </div>
+            <div class="article-inner">
+                <div class="article-entry" itemprop="articleBody">
+                    <h1 id="FGX-Protocol-FSM-Design-and-Interface"><a href="#FGX-Protocol-FSM-Design-and-Interface" class="headerlink" title="FGX Protocol FSM Design and Interface"></a>FGX Protocol FSM Design and Interface</h1><p>fgx protocol interface:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> FGX_SOCKET_ERROR</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_SOCKET_ERROR            (-1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* fgx state */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_LISTEN					0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_SYN_SENT 				1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_SYN_RECEIVED 			2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_ESTABLISHED             3</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_CLOSED					4</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* fgx option */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_OPT_RCVBUF				2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_OPT_SNDBUF				3</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_OPT_MSS					7       <span class="comment">/* mss = mtu - ip_header - udp_header */</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* fgx bind flags */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_BIND_ADD_ADDR			0		<span class="comment">/* register a addr */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_BIND_DEL_ADDR			1		<span class="comment">/* deregister a addr */</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* fgx exception number */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_EXPCEPT_LTIMEOUT		0		<span class="comment">/* listen state timeout */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_EXPCEPT_RTIMEOUT		0		<span class="comment">/* received state timeout */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_EXPCEPT_STIMEOUT		0		<span class="comment">/* sent state timeout */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_EXPCEPT_ETIMEOUT		0		<span class="comment">/* established state timeout */</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* fgx address */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">fgx_addr_t</span> &#123;</span></span><br><span class="line">	<span class="keyword">uintptr_t</span>					 	paddr;	<span class="comment">/* primary key */</span></span><br><span class="line">    <span class="keyword">uintptr_t</span> 						saddr;	<span class="comment">/* secondary key */</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* fgx result code for writting the packet */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_WR_SUCCESS				0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_WR_TOO_LARGE			1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FGX_WR_FAIL					2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* fgx use this interface to send packet to |addr| address */</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">int</span> <span class="params">(*fgx_write_pt)</span> <span class="params">(<span class="keyword">void</span> *priv, <span class="keyword">fgx_addr_t</span> *addr, <span class="keyword">char</span> *buf, <span class="keyword">int</span> len)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* private data */</span></span><br><span class="line">    <span class="keyword">void</span>				 *priv;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* fgx socket read and write notification event */</span></span><br><span class="line">    <span class="keyword">void</span> 				(*readable) 	(<span class="keyword">void</span> *priv);</span><br><span class="line">	<span class="keyword">void</span> 				(*writeable) 	(<span class="keyword">void</span> *priv);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* fgx sub-socket notification event (for bind) */</span></span><br><span class="line">    <span class="keyword">void</span> 				(*open) 		(<span class="keyword">void</span> *priv, <span class="keyword">fgx_addr_t</span> *addr);</span><br><span class="line">	<span class="keyword">void</span> 				(*closed) 		(<span class="keyword">void</span> *priv, <span class="keyword">fgx_addr_t</span> *addr);</span><br><span class="line">	<span class="keyword">void</span> 				(*except)		(<span class="keyword">void</span> *priv, <span class="keyword">fgx_addr_t</span> *addr, <span class="keyword">int</span> eno);</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">int</span> 				(*write) 		(<span class="keyword">void</span> *priv, <span class="keyword">fgx_addr_t</span> *addr, <span class="keyword">char</span> *buf, <span class="keyword">int</span> len);</span><br><span class="line">  </span><br><span class="line">&#125; <span class="keyword">fgx_notify_t</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgx_startup</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgx_cleanup</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">fgx_socket</span><span class="params">(<span class="keyword">fgx_notify_t</span> notify)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgx_bind</span><span class="params">(<span class="keyword">void</span> *sock, <span class="keyword">fgx_addr_t</span> *addr, <span class="keyword">int</span> flags)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgx_connect</span><span class="params">(<span class="keyword">void</span> *sock, <span class="keyword">fgx_addr_t</span> *addr)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgx_send</span><span class="params">(<span class="keyword">void</span> *sock, <span class="keyword">const</span> <span class="keyword">char</span> *buf, <span class="keyword">int</span> len)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgx_recv</span><span class="params">(<span class="keyword">void</span> *sock, <span class="keyword">char</span> *buf, <span class="keyword">int</span> len)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgx_close</span><span class="params">(<span class="keyword">void</span> *sock)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgx_error</span><span class="params">(<span class="keyword">void</span> *sock)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgx_getopt</span><span class="params">(<span class="keyword">void</span> *sock, <span class="keyword">int</span> opt, <span class="keyword">int</span> *value)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgx_setopt</span><span class="params">(<span class="keyword">void</span> *sock, <span class="keyword">int</span> opt, <span class="keyword">int</span> value)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Call this whenever a packet arrives.</span></span><br><span class="line"><span class="comment"> * Returns true if the packet was processed successfully.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgx_notify_packet</span><span class="params">(<span class="keyword">void</span> *sock, <span class="keyword">fgx_addr_t</span> *addr, <span class="keyword">const</span> <span class="keyword">char</span> *buf, <span class="keyword">int</span> len)</span></span>;</span><br></pre></td></tr></table></figure>
+
+                </div>
+                
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"> < Hello World</div>
+    </a>
+  
+</nav>
+
+
+            </div>
+        </div>
+        
+            <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//igx.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//igx.disqus.com/count.js" async></script>
+
+        
+        
+</article>
+
+
+
+		</div>
+		<div id="heart"></div>
+
+    <footer class="blog-footer" id="blog-footer">
+        <div id="footer-info" class="inner">
+            XSC ♥ <a href="https://github.com/xschrodingerscat/" target="_blank">IGX</a>
+        </div>
+    </footer>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toTop.js"></script>
+    <script src="/js/bookmark.js"></script>
+
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+	</html>
